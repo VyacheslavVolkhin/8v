@@ -19,8 +19,32 @@ $(document).ready(function(){
 	  });
 	  return this;
 	};
-
-	//popup block
+    
+    
+    //circe
+    $('.circle-main .circle').circleProgress({
+        reverse: true,
+        startAngle: -220,
+        animation: false,
+        lineCap: 'round',
+        fill: {color: '#009DD9'},
+        size: 208,
+        emptyFill: 'rgba(0,0,0,0)'
+    });
+    $('.circle-second .circle').circleProgress({
+        startAngle: -220,
+        animation: false,
+        lineCap: 'round',
+        fill: {color: '#FF004F'},
+        size: 208,
+        emptyFill: 'rgba(0,0,0,0)'
+    });
+    
+    
+    //tooltip
+    $('.elm-help[title]').tooltip();
+	
+    //popup block
 	$('.js-popup-wrap .js-btn-toggle').on('click', function() {
 		if ($(this).hasClass('active')) {
 			$(this).removeClass('active');
@@ -100,6 +124,106 @@ $(document).ready(function(){
 			$(this).addClass('active').next('.js-tab-content').slideDown(200);
 		}
 	})
+
+
+    //item-tile-video
+    $('.js-btn-video').on('click', function () {
+        let videoURL = $(this).parent('.item-tile-video').attr('data-video');
+        $(this).parents('.item-tile-video').addClass('active');
+        $(this).parents('.item-tile-video').append('<iframe width="100%" height="100%" src="' + videoURL + '" frameborder="0" allowfullscreen></iframe>')
+        return false;
+    })
+
+
+    //main-top-box
+    if (!!$('.main-top-box').offset()) {
+        $('.main-top-box .slider').slick({
+            dots: true,
+            slidesToShow: 1,
+            variableWidth: false,
+            infinite: false,
+            adaptiveHeight: false,
+            prevArrow: '<span class="btn-action-ico ico-arrow ico-arrow-prev"></span>',
+            nextArrow: '<span class="btn-action-ico ico-arrow ico-arrow-next"></span>',
+        });
+    }
+
+
+    //item-tile-developer
+    if (!!$('.item-tile-developer').offset()) {
+        $('.item-tile-developer .slider').slick({
+            dots: true,
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            variableWidth: false,
+            infinite: false,
+            adaptiveHeight: false,
+            prevArrow: false,
+            nextArrow: false,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 7,
+                        slidesToScroll: 7,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 5,
+                    }
+                },
+                {
+                    breakpoint: 640,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4,
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                    }
+                },
+            ]
+        });
+    }
+
+
+    //tiles-slider-box
+    if (!!$('.tiles-slider-box').offset()) {
+        $('.tiles-slider-box .slider').slick({
+            dots: true,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            variableWidth: false,
+            infinite: true,
+            adaptiveHeight: false,
+            prevArrow: '<span class="btn-action-ico ico-arrow ico-arrow-prev"></span>',
+            nextArrow: '<span class="btn-action-ico ico-arrow ico-arrow-next"></span>',
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        infinite: false, 
+                    }
+                },
+            ]
+        });
+    }
 	
 });
 

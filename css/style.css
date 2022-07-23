@@ -641,6 +641,42 @@ body {
 .header-main-panel .action-wrap:first-child:before {
   display: none;
 }
+.header-top-panel .action-wrap {
+  position: relative;
+}
+.header-top-panel .action-wrap .popup-content-block {
+  display: none;
+  position: absolute;
+  width: 240px;
+  margin-top: 10px;
+  top: 100%;
+  right: -32px;
+  z-index: 10;
+  background: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 96px 80px rgba(35, 31, 32, 0.05), 0px 40.1065px 33.4221px rgba(35, 31, 32, 0.0359427), 0px 21.4429px 17.869px rgba(35, 31, 32, 0.0298054), 0px 12.0207px 10.0172px rgba(35, 31, 32, 0.025), 0px 6.3841px 5.32008px rgba(35, 31, 32, 0.0201946), 0px 2.65657px 2.21381px rgba(35, 31, 32, 0.0140573);
+          box-shadow: 0px 96px 80px rgba(35, 31, 32, 0.05), 0px 40.1065px 33.4221px rgba(35, 31, 32, 0.0359427), 0px 21.4429px 17.869px rgba(35, 31, 32, 0.0298054), 0px 12.0207px 10.0172px rgba(35, 31, 32, 0.025), 0px 6.3841px 5.32008px rgba(35, 31, 32, 0.0201946), 0px 2.65657px 2.21381px rgba(35, 31, 32, 0.0140573);
+}
+.header-top-panel .action-wrap .popup-content-block .site-menu-wrap {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.header-top-panel .action-wrap .popup-content-block .site-menu-wrap .menu {
+  padding: 15px 0;
+  display: block;
+  margin: 0;
+}
+.header-top-panel .action-wrap .popup-content-block .site-menu-wrap .menu li {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.header-top-panel .action-wrap .popup-content-block .site-menu-wrap a {
+  padding: 5px 20px;
+  text-align: center;
+}
 .header-top-panel .site-menu-wrap {
   font-size: 16px;
   line-height: 24px;
@@ -2567,7 +2603,8 @@ body {
   color: var(--clr-att);
 }
 .main-top-box {
-  margin-bottom: 5px;
+  margin-bottom: 50px;
+  margin-bottom: 5rem;
   position: relative;
   padding-top: 15px;
   padding-bottom: 60px;
@@ -4245,4 +4282,63 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   background-position: 0px 0px;
   width: 1px;
   height: 1px;
+}
+/* ----------------------------------- *\
+			animation
+\* ----------------------------------- */
+.item-animation {
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+  -webkit-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+  opacity: 0;
+}
+.item-animation.item-active {
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.item-aleft {
+  -webkit-transform: translateX(-100px);
+  transform: translateX(-100px);
+}
+.item-aright {
+  -webkit-transform: translateX(100px);
+  transform: translateX(100px);
+}
+.item-abottom {
+  -webkit-transform: translateY(-100px);
+  transform: translateY(-100px);
+}
+.item-atop {
+  -webkit-transform: translateY(100px);
+  transform: translateY(100px);
+}
+.item-animation-second {
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+.item-animation-third {
+  -webkit-transition-delay: 0.8s;
+          transition-delay: 0.8s;
+}
+.item-animation-four {
+  -webkit-transition-delay: 1.2s;
+          transition-delay: 1.2s;
+}
+.item-animation-five {
+  -webkit-transition-delay: 1.6s;
+          transition-delay: 1.6s;
+}
+.item-animation-six {
+  -webkit-transition-delay: 2s;
+          transition-delay: 2s;
+}
+.item-animation-seven {
+  -webkit-transition-delay: 2.4s;
+          transition-delay: 2.4s;
 }

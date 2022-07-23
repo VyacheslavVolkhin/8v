@@ -143,6 +143,8 @@ $(document).ready(function(){
             variableWidth: false,
             infinite: false,
             adaptiveHeight: false,
+            autoplay: true,
+            autoplaySpeed: 5000,
             prevArrow: '<span class="btn-action-ico ico-arrow ico-arrow-prev"></span>',
             nextArrow: '<span class="btn-action-ico ico-arrow ico-arrow-next"></span>',
         });
@@ -203,6 +205,8 @@ $(document).ready(function(){
             variableWidth: false,
             infinite: true,
             adaptiveHeight: false,
+            autoplay: true,
+            autoplaySpeed: 5000,
             prevArrow: '<span class="btn-action-ico ico-arrow ico-arrow-prev"></span>',
             nextArrow: '<span class="btn-action-ico ico-arrow ico-arrow-next"></span>',
             responsive: [
@@ -224,6 +228,24 @@ $(document).ready(function(){
             ]
         });
     }
+
+
+    //animation
+    var sTop = $(window).scrollTop() + $(window).innerHeight();
+    $('.item-animation').each(function () {
+        if ($(this).offset().top < sTop) {
+            $(this).addClass('item-active')
+        }
+    })
+
+    $(window).scroll(function () {
+        var sTop = $(window).scrollTop() + $(window).innerHeight();
+        $('.item-animation').each(function () {
+            if ($(this).offset().top < sTop) {
+                $(this).addClass('item-active')
+            }
+        })
+    });
 	
 });
 

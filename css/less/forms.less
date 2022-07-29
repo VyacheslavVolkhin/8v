@@ -74,6 +74,24 @@ select::-ms-expand {
             border-color: var(--clr-att-title);
         }
     }
+    &.button-header {
+        background-color: #fff;
+        font-size: 1.6rem;
+        line-height: 21/16;
+        text-transform: uppercase;
+        color: var(--clr-att);
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        padding: 0 3rem;
+        height: 5.8rem;
+        border-radius: 2.9rem;
+        border: 2px solid #FF004F;
+        &:hover {
+            border-color: #FF004F;
+            background-color: #FF004F;
+            color: #fff;
+        }
+    }
     &.button-form {
         height: 50px;
         border-radius: 5px;
@@ -187,6 +205,18 @@ select::-ms-expand {
             }
         }
     }
+    &.ico-dotted {
+        &:before {
+            background-image: url(../img/icons/dotted.svg);
+            background-size: 21px auto;
+        }
+    }
+    &.ico-chat {
+        &:before {
+            background-image: url(../img/icons/forum-chat.svg);
+            background-size: 24px auto;
+        }
+    }
     &.ico-solution {
         &:before {
             background-image: url(../img/icons/solution.svg);
@@ -264,6 +294,30 @@ select::-ms-expand {
             &:before {
                 filter: brightness(0) invert(1);
             }
+        }
+    }
+}
+.btn-action-toggle {
+    padding: 0 26px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -8px;
+        width: 16px;
+        height: 16px;
+        background: url(../img/icons/arrow-toggle.svg) center no-repeat;
+        background-size: 100% auto;
+        transition: all ease 0.2s;
+    }
+    &.active {
+        &:before {
+            .t-rotate(180deg);
         }
     }
 }

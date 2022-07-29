@@ -64,6 +64,7 @@ html {
 		flex-shrink: 0;
 	}
 }
+
 .nav,
 .header,
 .footer,
@@ -161,10 +162,30 @@ html {
     text-align: center;
     padding: 15px 0;
     border-top: 1.5px dashed var(--clr-att-title);
+    &:first-child {
+        border-top: none;
+    }
     p, .footer-info {
         margin-bottom: 10px;
         &:last-child {
             margin-bottom: 0;
+        }
+    }
+    .menu-info {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 14px;
+        line-height: 19/14;
+        margin: 0 -1.5rem;
+        li {
+            padding: 0 1.5rem;
+            margin: 0;
+        }
+        a {
+            color: var(--clr-base);
+            &:hover {
+                color: var(--clr-att-title);
+            }
         }
     }
 }
@@ -205,11 +226,15 @@ html {
         line-height: 27/20;
         margin-left: 3rem;
     }
+    
     .actions-wrap {
         display: flex;
         flex-wrap: wrap;
         margin: 0 -14px 0 0;
         letter-spacing: 0.01em;
+    }
+    .header-button-wrap {
+        flex-shrink: 0;
     }
     .action-wrap {
         padding: 5px 14px;
@@ -312,6 +337,43 @@ html {
         }
     }
 }
+.header-subnav-panel {
+    display: block;
+    position: relative;
+    background-color: var(--clr-att-title);
+    color: #fff;
+    font-size: 14px;
+    line-height: 19px;
+    &:before, &:after {
+    	content: "";
+    	display: block;
+    	width: 9999px;
+    	position: absolute;
+    	top: 0;bottom: 0;left: 100%;
+    	background: var(--clr-att-title);
+    }
+    &:before {
+    	left: auto;right: 100%;
+    }
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -30px 0 -30px;
+        li {
+            margin: 0 30px 0 0;
+        }
+    }
+    a {
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+        height: 40px;
+        color: #fff;
+        &:hover, &.active {
+            color: #fff;
+        }
+    }
+}
 .header-nav-panel {
     .menu {
         font-size: 16px;
@@ -327,6 +389,12 @@ html {
                 background-color: var(--clr-att-title);
                 color: #fff;
             }
+        }
+    }
+    .menu-button {
+        display: none;
+        .btn {
+            width: 100%;
         }
     }
 }
@@ -348,6 +416,9 @@ html {
     }
 }
 @media (max-width: 1023px) {
+    .header-subnav-panel {
+        display: none;
+    }
     .header {
         .inner-wrap {
             display: flex;
@@ -355,7 +426,7 @@ html {
             padding-right: 0;
             padding-top: 10px;
             padding-bottom: 10px;
-            display: flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
         }
@@ -366,6 +437,9 @@ html {
         right: 0;
         left: 0;
         bottom: 0;
+        .menu-button {
+            display: block;
+        }
         .btn-popup {
             position: absolute;
             top: 50%;
@@ -400,6 +474,22 @@ html {
                     width: 0;
                     height: 0;
                 }
+                .open {
+                    &>a {
+                    }
+                }
+                ul {
+                    display: none;
+                    padding-bottom: 30px;
+                    a {
+                        padding: 10px 20px;
+                        border-radius: 0;
+                        display: block;
+                        font-size: 14px;
+                        text-transform: none;
+                        min-height: 0;
+                    }
+                }
             }
         }
         .menu {
@@ -418,6 +508,10 @@ html {
     .header-main-panel {
         order: 1;
         flex-shrink: 0;
+        position: static;
+        .header-button-wrap {
+            display: none;
+        }
         .logo-text {
             display: none;
         }
@@ -450,6 +544,11 @@ html {
             }
         }
     }
+    .footer-info-panel {
+        .menu-info {
+            justify-content: center;
+        }
+    }
 }
 @media (min-width: 480px) {
     .footer-main-panel {
@@ -463,6 +562,57 @@ html {
     }
 }
 @media (min-width: 1024px) {
+    .wrap-forum {
+        position: relative;
+        &:before {
+            content: "";
+            display: block;
+            background: url(../img/main/flowers.png) center no-repeat;
+            background-size: 100% auto;
+            width: 628/10rem;
+            height: 371/10rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .header-nav-panel {
+            background-color: var(--clr-att);
+            position: relative;
+            &:before, &:after {
+            	content: "";
+            	display: block;
+            	width: 9999px;
+            	position: absolute;
+            	top: 0;bottom: 0;left: 100%;
+            	background: var(--clr-att);
+            }
+            &:before {
+            	left: auto;right: 100%;
+            }
+            .menu {
+                border-radius: 0;
+                background-color: transparent;
+                justify-content: flex-start;
+                li {
+                    flex: inherit;
+                }
+                a {
+                    height: 40px;
+                    min-height: 40px;
+                    padding: 0 30px;
+                    border-radius: 0 !important;
+                    font-size: 14px;
+                    line-height: 19px;
+                    font-weight: 400;
+                    text-transform: none;
+                    color: #fff;
+                    &:hover, &.active {
+                        background-color: var(--clr-att-title);
+                    }
+                }
+            }
+        }
+    }
     .main-form-box {
         &~.footer-outer-wrap {
             padding-top: 0;
@@ -547,12 +697,18 @@ html {
         padding: 30px 0;
         display: flex;
         justify-content: space-between;
+        &:first-child {
+            padding-top: 50px;
+        }
         .footer-info {
             margin: 0;
             max-width: 49%;
             &:last-child {
                 text-align: right;
             }
+        }
+        .menu-info {
+            padding-right: 6.8rem;
         }
     }
     .header {
@@ -572,6 +728,9 @@ html {
             border-radius: 28px;
             overflow: hidden;
             position: relative;
+            ul {
+                display: none !important;
+            }
             li {
                 flex-basis: auto;
                 flex-grow: 1;

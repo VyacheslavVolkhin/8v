@@ -68,6 +68,11 @@ body.compensate-for-scrollbar {
         padding-right: 4px;
     }
 }
+.clearfix {
+    display: block;
+    width: 100%;
+    clear: both;
+}
 p, ul, ol, table, blockquote, .bq-text {
 	position: relative;
     margin-bottom: 1.35em;
@@ -124,6 +129,13 @@ h6, .h6-title {
     .ft;
     * {
         .ft;
+    }
+    &.title-main {
+        font-size: 3.6rem;
+        line-height: 1.25;
+        color: var(--clr-att-title);
+        font-weight: bold;
+        margin-top: 0;
     }
 }
 .h2-title, h2 {
@@ -235,6 +247,11 @@ h6, .h6-title {
     .h4-title, h4 {
         &.title-small {
             font-size: 16px;
+        }
+    }
+    .h1-title, h1 {
+        &.title-main {
+            font-size: 3rem;
         }
     }
 }

@@ -108,6 +108,28 @@
 .sl-wrap~.sl-wrap {
     display: none;
 }
+.slider-dots {
+    .slick-dots {
+        margin: 0 -5px;
+        li {
+            margin: 0 5px 5px 5px;
+            button {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: #B2B6BA;
+                &:hover {
+                    background-color: #2E348C;
+                }
+            }
+        }
+        .slick-active {
+            button {
+                background-color: #2E348C;
+            }
+        }
+    }
+}
 .slick-dots {
     display: flex;
     align-items: center;

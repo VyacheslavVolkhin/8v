@@ -43,6 +43,25 @@ $(document).ready(function(){
     
     //tooltip
     $('.elm-help[title]').tooltip();
+
+
+    //mobile menu
+    $('.popup-menu-wrap li ul').each(function () {
+        $(this).parent().addClass('submenu');
+    })
+    $('.popup-menu-wrap li a').on('click', function () {
+        if ($(this).next('ul').length > 0) {
+            if ($(window).innerWidth() < 1024) {
+                if ($(this).parent().hasClass('open')) {
+                    $(this).parent().removeClass('open').children('ul').slideUp(200);
+                } else {
+                    $('.popup-menu-wrap li.open').removeClass('open').children('ul').slideUp(200);
+                    $(this).parent().addClass('open').children('ul').slideDown(200);
+                }
+                return false;
+            }
+        }
+    })
 	
     //popup block
 	$('.js-popup-wrap .js-btn-toggle').on('click', function() {
@@ -52,7 +71,7 @@ $(document).ready(function(){
 		} else {
 			$('.js-popup-wrap:not(.no-close) .js-btn-toggle').removeClass('active');
 			$(this).addClass('active');
-			if ($(this).parent().hasClass('main-menu-wrap')) {
+			if ($(this).parent().hasClass('popup-menu-wrap')) {
 				$('body').addClass('menu-show');
 			}
 		}
@@ -246,6 +265,40 @@ $(document).ready(function(){
             }
         })
     });
+
+
+    //media-slider-box
+    if (!!$('.media-slider-box').offset()) {
+        $('.media-slider-box .slider').slick({
+            dots: true,
+            slidesToShow: 6,
+            variableWidth: false,
+            infinite: true,
+            adaptiveHeight: false,
+            prevArrow: false,
+            nextArrow: false,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 10,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 9,
+                    }
+                },
+                {
+                    breakpoint: 640,
+                    settings: {
+                        slidesToShow: 8,
+                    }
+                },
+            ]
+        });
+    }
 	
 });
 
